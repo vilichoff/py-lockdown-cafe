@@ -15,7 +15,8 @@ class Cafe:
         expiry_date = visitor["vaccine"]["expiration_date"]
         if expiry_date < datetime.date.today():
             raise OutdatedVaccineError(
-                f"Visitor {visitor.get('name', 'Unknown')} has an expired vaccine on {expiry_date:%Y-%m-%d}"
+                f"Visitor {visitor.get('name', 'Unknown')} has an expired vaccine "
+                f"on {expiry_date:%Y-%m-%d}"
             )
 
         if not visitor.get("wearing_a_mask"):
